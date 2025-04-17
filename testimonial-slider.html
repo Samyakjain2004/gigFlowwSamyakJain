@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gigfloww Testimonials</title>
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+
+  <style>
+    :root {
+      --bg: #121212;
+      --card-bg: rgba(255, 255, 255, 0.1);
+      --text: #f0f0f0;
+      --accent: #00ffd5;
+      --button-bg: rgba(0, 255, 213, 0.1);
+      --button-text: var(--accent);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 1rem;
+      box-sizing: border-box;
+      position: relative; /* Ensures the video stays behind content */
+    }
+
+    /* Video background */
+    .video-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1; /* Places video behind other elements */
+    }
+
+    .slider-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      letter-spacing: 1px;
+    }
+
+    .typewriter {
+      overflow: hidden;
+      border-right: .15em solid var(--accent);
+      white-space: nowrap;
+      animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
+      width: 100%;
+      display: inline-block;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: var(--accent); }
+    }
+
+    .swiper {
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .swiper-slide {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      transform-style: preserve-3d;
+      box-shadow: 0 0 30px rgba(0,255,213,0.1);
+    }
+
+    .swiper-slide:hover {
+      transform: perspective(800px) rotateY(5deg) rotateX(5deg);
+      box-shadow: 0 0 40px rgba(0, 255, 213, 0.2);
+    }
+
+    .testimonial {
+      font-style: italic;
+      font-size: 1.1rem;
+      color: #ccc;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .author {
+      font-weight: bold;
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+
+    .author-wrap {
+      display: flex;
+      align-items: center;
+      margin-top: 1.5rem;
+    }
+
+    .avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 15px;
+      border: 2px solid var(--accent);
+      transition: transform 0.3s ease;
+    }
+
+    .avatar:hover {
+      transform: scale(1.1);
+    }
+
+    .swiper-button-next, .swiper-button-prev {
+      color: var(--accent);
+    }
+
+    .toggle-mode {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--button-bg);
+      border: 1px solid var(--button-text);
+      color: var(--button-text);
+      padding: 12px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .toggle-mode:hover {
+      background-color: var(--accent);
+      color: #121212;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Video background -->
+  <video class="video-background" autoplay muted loop>
+    <source src="background.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="toggle-mode" onclick="toggleTheme()">🌗 Toggle Mode</div>
+  <div class="slider-title">
+    <span class="typewriter">What People Say About Gigfloww</span>
+  </div>
+
+  <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+
+      <div class="swiper-slide">
+        <div class="testimonial">"Gigfloww helped streamline our freelance management like never before. Highly recommend!"</div>
+        <div class="author-wrap">
+          <img src="https://i.pravatar.cc/100?img=12" alt="Alex" class="avatar"/>
+          <div class="author">Alex R., Project Manager</div>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="testimonial">"Thanks to Gigfloww, our hiring process became super smooth and efficient."</div>
+        <div class="author-wrap">
+          <img src="https://i.pravatar.cc/100?img=5" alt="Priya" class="avatar"/>
+          <div class="author">Priya S., HR Specialist</div>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="testimonial">"The user interface is clean, and managing gigs is a breeze with Gigfloww."</div>
+        <div class="author-wrap">
+          <img src="https://i.pravatar.cc/100?img=9" alt="Jordan" class="avatar"/>
+          <div class="author">Jordan T., Startup Founder</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper(".mySwiper", {
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      effect: "slide",
+    });
+
+    function toggleTheme() {
+      const root = document.documentElement;
+      const currentBg = root.style.getPropertyValue('--bg');
+      
+      if (currentBg === '#ffffff') {
+        root.style.setProperty('--bg', '#121212');
+        root.style.setProperty('--text', '#f0f0f0');
+        root.style.setProperty('--card-bg', 'rgba(255,255,255,0.05)');
+      } else {
+        root.style.setProperty('--bg', '#ffffff');
+        root.style.setProperty('--text', '#222222');
+        root.style.setProperty('--card-bg', 'rgba(0,0,0,0.05)');
+      }
+    }
+  </script>
+</body>
+</html>
